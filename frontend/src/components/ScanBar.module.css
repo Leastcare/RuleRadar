@@ -1,0 +1,122 @@
+.bar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.progressLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scanLabel {
+  font-family: var(--fh);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text2);
+  letter-spacing: 0.12em;
+}
+
+.scanPct {
+  font-family: var(--fh);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+
+.track {
+  height: 7px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  background: var(--border2);
+  transition: width 0.4s ease;
+}
+
+.fillActive {
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  overflow: hidden;
+  position: relative;
+}
+.fillActive::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+  animation: sweep 1s ease-in-out infinite;
+}
+@keyframes sweep { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
+
+.fillDone {
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+.scanHint {
+  font-size: 0.66rem;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 0.35rem 1.4rem;
+  align-items: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: flex-end;
+}
+
+.statLabel {
+  font-size: 0.62rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.statVal {
+  font-size: 0.68rem;
+  color: var(--text2);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.statDone { color: var(--green); }
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  color: var(--text4);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.sep { color: var(--border2); }

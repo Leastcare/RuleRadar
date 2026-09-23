@@ -1,0 +1,13 @@
+{
+  "default_docket_id": "EPA-HQ-OAR-2021-0317",
+  "dockets": [
+    {
+      "id": "EPA-HQ-OAR-2021-0317",
+      "description": "EPA Oil & Gas Methane Rule \u2014 documented mass-comment campaigns"
+    },
+    {
+      "id": "CFPB-2023-0047",
+      "description": "CFPB Medical Debt Credit Reporting Rule \u2014 high comment volume"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--bg2);
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--panel);
+}
+
+.title {
+  font-family: var(--fh);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text2);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  color: var(--text3);
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+.meta b { color: var(--text2); font-weight: 600; }
+
+.sep { color: var(--border2); }
+
+.expandBtn {
+  font-size: 1rem;
+  color: var(--text3);
+  padding: 0 0.2rem;
+  transition: color 0.15s;
+}
+.expandBtn:hover { color: var(--cyan); }
+
+.canvas {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.idleIcon {
+  font-size: 3.5rem;
+  color: var(--cyan3);
+  animation: spin 8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.stateTitle {
+  font-family: var(--fh);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text2);
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.stateHint {
+  font-size: 0.72rem;
+  color: var(--text3);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.spinner {
+  width: 48px; height: 48px;
+  border: 2px solid var(--border);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: rotate 0.8s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+
+.errorIcon { font-size: 2.5rem; color: var(--red); }
+
+.minimap {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 108px;
+  height: 75px;
+  border: 1px solid var(--border2);
+  background: rgba(4,13,15,0.92);
+  overflow: hidden;
+}
+.minimapSvg { width: 100%; height: 100%; display: block; }
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--panel);
+}
+
+.legItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  color: var(--text3);
+}
+
+.legDotSolo {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--node-solo); flex-shrink: 0;
+}
+.legDotClus {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--node-clus);
+  box-shadow: 0 0 5px var(--node-clus); flex-shrink: 0;
+}
+.legLine {
+  width: 20px; height: 1px;
+  background: var(--text3); flex-shrink: 0;
+}
+.legDash {
+  width: 20px; height: 1px;
+  background: repeating-linear-gradient(90deg, var(--text3) 0, var(--text3) 3px, transparent 3px, transparent 6px);
+  flex-shrink: 0;
+}

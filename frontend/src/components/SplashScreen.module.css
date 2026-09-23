@@ -1,0 +1,226 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #020a0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* ── Background floating law icons ── */
+.bgIcons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.icon {
+  position: absolute;
+  opacity: 0.06;
+  animation: floatIcon 6s ease-in-out infinite;
+  filter: grayscale(1) brightness(2);
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.06; }
+  50%       { transform: translateY(-18px) rotate(4deg); opacity: 0.1; }
+}
+
+/* ── Scanning grid ── */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridScroll 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridScroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 48px 48px; }
+}
+
+/* ── Center content ── */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 560px;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Logo ── */
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.logoSvg { flex-shrink: 0; }
+
+.rotateSlow {
+  transform-origin: center;
+  animation: rotateSlow 12s linear infinite;
+}
+@keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+.pulseDot {
+  animation: pulseDot 1.5s ease-in-out infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { r: 4; opacity: 1; }
+  50%       { r: 6; opacity: 0.5; }
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.logoTitle {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #c8e8f0;
+  line-height: 1;
+}
+
+.logoAccent { color: #00d4ff; }
+
+.logoSub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #3a6878;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── Terminal ── */
+.terminal {
+  width: 100%;
+  background: rgba(0,20,28,0.8);
+  border: 1px solid #0e3040;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-height: 160px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.termLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeInLine 0.25s ease;
+}
+@keyframes fadeInLine { from { opacity: 0; transform: translateX(-4px); } to { opacity: 1; } }
+
+.prompt { color: #006688; font-size: 0.78rem; }
+
+.termText {
+  font-size: 0.78rem;
+  color: #5a9aaa;
+  letter-spacing: 0.06em;
+}
+
+.termActive { color: #00d4ff; }
+
+.cursor {
+  font-size: 0.78rem;
+  color: #00d4ff;
+  animation: blink 0.8s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ── Progress ── */
+.progressWrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 4px;
+  background: #0a1820;
+  border: 1px solid #0e3040;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #006688, #00d4ff);
+  box-shadow: 0 0 8px #00d4ff;
+  transition: width 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+.progressFill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: sweep 0.8s ease-in-out infinite;
+}
+@keyframes sweep { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
+
+.progressPct {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #00d4ff;
+  min-width: 2.8rem;
+  text-align: right;
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.15rem;
+  color: #3a6878;
+  letter-spacing: 0.06em;
+  text-align: center;
+  font-style: italic;
+  animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
+
+/* ── Bottom bar ── */
+.bottomBar {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: #1e4050;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dot2 { color: #0e3040; }

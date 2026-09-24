@@ -10,7 +10,7 @@ load_dotenv()
 # ---------------------------------------------------------------------------
 # Regulations.gov API
 # ---------------------------------------------------------------------------
-REGULATIONS_API_KEY = os.getenv("REGULATIONS_GOV_API_KEY", "DEMO_KEY")
+REGULATIONS_API_KEY = os.getenv("REGULATIONS_GOV_API_KEY", "DEMO_KEY").strip()
 REGULATIONS_BASE_URL = "https://api.regulations.gov/v4"
 
 # Max comments to fetch per docket (keeps demo snappy; raise for production)
@@ -44,5 +44,5 @@ TIMING_BURST_FRACTION = 0.6
 # ---------------------------------------------------------------------------
 # Flask
 # ---------------------------------------------------------------------------
-FLASK_DEBUG = os.getenv("FLASK_DEBUG", "false").lower() == "true"
-FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
+FLASK_DEBUG = os.getenv("FLASK_DEBUG", "false").lower().strip() == "true"
+FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173").strip()

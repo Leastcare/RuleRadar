@@ -32,8 +32,9 @@ app = Flask(__name__)
 
 # Allow requests from the React dev server and production Vercel URL
 CORS(app, origins=[
-    config.FRONTEND_ORIGIN,
+    config.FRONTEND_ORIGIN.strip(),
     "https://ruleradar.vercel.app",
+    "https://rule-radar-zho.vercel.app",
     "https://*.vercel.app",
 ])
 
